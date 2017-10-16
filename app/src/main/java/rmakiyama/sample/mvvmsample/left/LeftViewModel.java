@@ -26,4 +26,12 @@ public class LeftViewModel extends ViewModel {
     public void onClickClear(@SuppressWarnings("unused") View view) {
         input.set("");
     }
+
+    @Override
+    public void onResume() {
+    }
+
+    @Override
+    public void onPause() {
+    }
 }

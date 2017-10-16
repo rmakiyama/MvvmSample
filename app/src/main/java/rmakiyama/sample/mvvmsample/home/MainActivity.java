@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import rmakiyama.sample.mvvmsample.R;
-import rmakiyama.sample.mvvmsample.center.CenterFragment;
+import rmakiyama.sample.mvvmsample.center.TasksFragment;
 import rmakiyama.sample.mvvmsample.databinding.ActivityMainBinding;
 import rmakiyama.sample.mvvmsample.left.LeftFragment;
 import rmakiyama.sample.mvvmsample.right.RightFragment;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.center:
                         manager.beginTransaction()
-                                .replace(R.id.container, CenterFragment.newInstance())
+                                .replace(R.id.container, TasksFragment.newInstance())
                                 .commit();
                         return true;
                     case R.id.right:
