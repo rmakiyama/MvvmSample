@@ -42,7 +42,7 @@ class TasksAdapter : RecyclerView.Adapter<TasksAdapter.TaskHolder>() {
         viewModel = TaskViewModel(task)
         mBinding.viewModel = viewModel
       } else {
-        mBinding.viewModel = viewModel
+        mBinding.viewModel = viewModel.also { it.task.set(task) }
       }
     }
   }
