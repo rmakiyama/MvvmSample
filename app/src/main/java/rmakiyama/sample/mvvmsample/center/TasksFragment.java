@@ -65,4 +65,14 @@ public class TasksFragment extends Fragment {
     public void onTasksLoaded(TasksViewModel.OnLoadedEvent event) {
         mAdapter.setTasks(event.getTasks());
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSwitchToggle(TasksViewModel.OnShowCompletedEvent event) {
+        mAdapter.setTasks(event.getCompletedTasks());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSwitchToggle(TasksViewModel.OnShowAllEvent event) {
+        mAdapter.setTasks(event.getAllTasks());
+    }
 }
