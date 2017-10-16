@@ -20,7 +20,8 @@ public class LeftFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentLeftBinding.inflate(inflater, container, false);
-        binding.text.setText("レフトだよ");
+        binding.setViewModel(new LeftViewModel());
+        binding.title.setText("Left");
         return binding.getRoot();
     }
 
