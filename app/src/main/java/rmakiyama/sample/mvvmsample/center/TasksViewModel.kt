@@ -2,11 +2,11 @@ package rmakiyama.sample.mvvmsample.center
 
 import android.widget.CompoundButton
 import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import rmakiyama.sample.mvvmsample.ViewModel
 import rmakiyama.sample.mvvmsample.domain.entity.Task
 import rmakiyama.sample.mvvmsample.domain.usecase.GetTasksUseCase
-import org.greenrobot.eventbus.ThreadMode
-import org.greenrobot.eventbus.Subscribe
-import rmakiyama.sample.mvvmsample.ViewModel
 
 class TasksViewModel constructor(
     private val mGetTasksUseCase: GetTasksUseCase) : ViewModel() {
@@ -32,6 +32,7 @@ class TasksViewModel constructor(
 
   @Subscribe(threadMode = ThreadMode.MAIN)
   fun onTasksLoaded(event: GetTasksUseCase.OnLoadedEvent) {
+    tasks.clear()
     tasks.addAll(event.tasks)
     EventBus.getDefault().post(OnLoadedEvent(tasks))
   }
